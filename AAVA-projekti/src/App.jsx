@@ -1,14 +1,24 @@
-import { useState } from 'react'
 import './App.css'
-import KysymysLista from './components/KysymysLista'
+
+import { Link, Outlet } from "react-router-dom";
+
 
 function App() {
-
   return (
+
+
+/* NÄIHIN VOI LISÄTÄ NAVI BAR LINKKEJÄ */
     <>
-  <KysymysLista />
+      <nav>
+        <Link to={"/"}>pääsivu</Link>{' '}
+        <Link to={"/kysymyslista"}>Kysymyslista</Link>{' '}
+
+      </nav>
+      <Outlet />
+
     </>
   )
+
 }
 
 export default App
