@@ -1,10 +1,17 @@
 import { useState } from "react"
-import KyselyLista from "./KyselyLista"
 import { useEffect } from "react";
+import { AgGridReact } from "ag-grid-react";
+
+import "ag-grid-community/styles/ag-grid.css";
+import "ag-grid-community/styles/ag-theme-material.css";
 
 export default function Home() {
 
     const [kyselyt, setKyselyt] = useState([]);
+    const [colDefs, setColDefs] = useState([
+        {field: 'nimi', sortable: true, filter: true, floatingFilter: true},
+        {field: 'kyselynTekija.nimi', filter: true, floatingFilter: true}
+    ]);
 
     useEffect(() => haeKyselyt(), []);
 
@@ -27,17 +34,19 @@ export default function Home() {
     return(
         <>
             <h1>
-                Tervetuloa etusivulle!
+                
             </h1>            
             {/* Tähän listaus aktiivisista kyselyistä */}
             <h2>Aktiiviset kyselyt</h2>
-            <ul>
-                {kyselyt.map((kysely, index) => (
-                    <li key={index}>
-                        Kyselyn nimi: {kysely.nimi}
-                    </li>
-                ))}
-            </ul>
+            <div className="ag-theme-material" style={{width: 500, height: 500}}>
+                <AgGridReact
+                    rowData={kyselyt}
+                    columnDefs={colDefs}
+                    pagination={true}
+                    paginationPageSize={10}
+                >     
+                </AgGridReact>
+            </div>
         </>
     )
 }
