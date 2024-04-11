@@ -10,8 +10,8 @@ function App() {
 /* NÄIHIN VOI LISÄTÄ NAVI BAR LINKKEJÄ */
     <>
       <nav>
-        <Link to={"/"}>pääsivu</Link>{' '}
-        <Link to={"/kysymyslista"}>Kysymyslista</Link>{' '}
+        <Link to={"/"}>Etusivu</Link>
+        <Link to={"/kysymyslista"}>Kysymyslista</Link>
 
       </nav>
       <Outlet />
