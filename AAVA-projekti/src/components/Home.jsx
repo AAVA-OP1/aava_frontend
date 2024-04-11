@@ -19,9 +19,7 @@ export default function Home() {
             }
         })
         .then(respData => {
-            // console.log(respData);
             setKyselyt(respData);
-            console.log(kyselyt);
         })
         .catch(err => console.error(err))
     };
@@ -33,7 +31,13 @@ export default function Home() {
             </h1>            
             {/* Tähän listaus aktiivisista kyselyistä */}
             <h2>Aktiiviset kyselyt</h2>
-
+            <ul>
+                {kyselyt.map((kysely, index) => (
+                    <li key={index}>
+                        Kyselyn nimi: {kysely.nimi}
+                    </li>
+                ))}
+            </ul>
         </>
     )
 }
