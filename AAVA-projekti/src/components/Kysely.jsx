@@ -10,17 +10,25 @@ import DialogContentText from '@mui/material/DialogContentText';
 export default function Kysely(props) {
 
     const [open, setOpen] = useState(false);
-    const [kysymykset, setKysymykset] = useState([]);
+    const [kysymykset, setKysymykset] = useState([{
+        sisalto: '',
+
+        // miten vastaus tallennetaan niin, että kysymysid pysyy vastauksen tiedossa?
+        vastaukset: []
+    }]);
+
     const [kysely, setKysely] = useState({
         kyselynTekija: ''
     });
-    // const [vastaus, setVastaus] = useState('');
 
 
     const handleClickOpen = () => {
             setKysely({
+                // tallentaa kyselyn tekijän nimen
                 kyselyntekija: props.params.data.kyselynTekija.nimi
             });
+
+            // tallentaa kyselyn kysymykset
             setKysymykset(props.params.data.kysymykset);
         setOpen(true);
     };
@@ -29,16 +37,17 @@ export default function Kysely(props) {
         setOpen(false);
     };
 
-    // const handleInputChange = (e) => {
-    //     setKysely({...kysely, [e.target.name]: e.target.value});
-    // };
+    const handleInputChange = (e) => {
+        setKysymykset({...kysymykset, [e.target.name]: e.target.value});
+    };
 
     
-
+    // toistaiseksi pitäisi avata kysely dialogi-ikkunassa
     return (
         <>
            <Button variant="outlined" size='small' onClick={handleClickOpen}>Avaa kysely</Button>
            <Dialog
+                // avaa dialogi-ikkunan
                 open={open}
                 onClose={handleClose}
                 PaperProps={{
@@ -57,18 +66,22 @@ export default function Kysely(props) {
 
             <DialogContent>
             <DialogContentText>
-                    <p>Kysleyn laatija: {kysely.kyselyntekija}</p>
+                    Kysleyn laatija: {kysely.kyselyntekija}
+
                 </DialogContentText>
                 <DialogContentText id="alert-dialog-description">
                     <ul>
                         {kysymykset.map((kysymys, index) => (
                     <li key={index}>
                         {kysymys.sisalto}
+
+                        {/* tämä ei toimi enää, koska "vastaukset" on taulukko */}
+                        {/* aiemmin avasti tekstikentän jokaisen kysymyksen alle */}
                         <TextField 
                             margin="dense"
-                            // name="vastaus"
-                            // value={vastaus}
-                            // onChange={e => handleInputChange(e)}
+                            name="vastaukset"
+                            value={kysymykset.vastaukset}
+                            onChange={e => handleInputChange(e)}
                             fullWidth
                             variant="outlined"
                         />
@@ -82,6 +95,8 @@ export default function Kysely(props) {
 
             <DialogActions>
                 <Button onClick={handleClose}>Cancel</Button>
+
+                {/* tänne tallennustoiminta sitten kun sen aika on */}
                 <Button >Save</Button>
             </DialogActions>
 
