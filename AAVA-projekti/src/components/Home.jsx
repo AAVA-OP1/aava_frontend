@@ -11,6 +11,7 @@ export default function Home() {
     const [colDefs, setColDefs] = useState([
         {field: 'nimi', sortable: true, filter: true, floatingFilter: true},
         {field: 'kyselynTekija.nimi', filter: true, floatingFilter: true}
+        // cellrenderer
     ]);
 
     useEffect(() => haeKyselyt(), []);
