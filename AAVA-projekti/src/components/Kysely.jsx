@@ -14,6 +14,8 @@ export default function Kysely(props) {
         sisalto: ''
     }]);
 
+    const [vastaukset, setVastaukset] = useState([]);
+
     const [kysely, setKysely] = useState({
         kyselynTekija: ''
     });
