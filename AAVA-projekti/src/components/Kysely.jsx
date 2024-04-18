@@ -7,6 +7,7 @@ import { useState } from 'react';
 import DialogContentText from '@mui/material/DialogContentText';
 import Kysymys from './Kysymys';
 
+
 export default function Kysely(props) {
 
     const [open, setOpen] = useState(false);
@@ -42,6 +43,10 @@ export default function Kysely(props) {
         // setKysymykset({...kysymykset, [e.target.name]: e.target.value});
     };
 
+    const muutaVastausLista = (vastaus) => {
+        setVastaukset([...vastaukset, vastaus]);
+    }
+
     
     // toistaiseksi pitäisi avata kysely dialogi-ikkunassa
     return (
@@ -74,7 +79,7 @@ export default function Kysely(props) {
                     <div>
                         {kysymykset.map((kysymys, index) => {
                             return(
-                                <Kysymys key={kysymys.kysymysid} kysymys={kysymys} index={index} />
+                                <Kysymys key={kysymys.kysymysid} kysymys={kysymys} muutaVastausLista={muutaVastausLista} index={index} />
                             )
                         })}
                     </div>
