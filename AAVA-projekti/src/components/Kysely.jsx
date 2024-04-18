@@ -77,14 +77,15 @@ export default function Kysely(props) {
 
                         {/* tämä ei toimi enää, koska "vastaukset" on taulukko */}
                         {/* aiemmin avasti tekstikentän jokaisen kysymyksen alle */}
-                        <TextField 
+                        {/* hakee olemassaolevat vastaukset kun pitäisi luoda uusi vastaus */}
+                        {/* <TextField 
                             margin="dense"
                             name="vastaukset"
                             value={kysymykset.vastaukset}
                             onChange={e => handleInputChange(e)}
                             fullWidth
                             variant="outlined"
-                        />
+                        /> */}
                     </li>
                     
                 ))}   
