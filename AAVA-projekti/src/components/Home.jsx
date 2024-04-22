@@ -5,7 +5,6 @@ import Kysely from "./Kysely";
 
 import "ag-grid-community/styles/ag-grid.css";
 import "ag-grid-community/styles/ag-theme-material.css";
-import KysymysLista from "./KysymysLista";
 
 export default function Home() {
 

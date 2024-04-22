@@ -44,10 +44,35 @@ export default function Kysely(props) {
     };
 
     const muutaVastausLista = (vastaus) => {
+        console.log(vastaus);
         setVastaukset([...vastaukset, vastaus]);
     }
 
-    
+    const lahetaVastaukset = (v) => {
+
+        fetch('https://localhost:8080/uusivastaus', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+                body: JSON.stringify(v)
+        })
+        .then(response => {
+            if (response.ok) {
+                console.log("ok");
+                return response.json;
+            } else {
+                console.log("ei ok");
+            }
+        })
+        .then(data => {
+            console.log("JSON: "  + data);
+        })
+        .catch(err => console.error(err))
+    };
+
+
+
     // toistaiseksi pitäisi avata kysely dialogi-ikkunassa
     return (
         <>
@@ -83,24 +108,6 @@ export default function Kysely(props) {
                             )
                         })}
                     </div>
-                    {/* <ul>
-                        {kysymykset.map((kysymys, index) => (
-                    <li key={index} >
-                        {kysymys.sisalto}
-
-                        <TextField 
-                            margin="dense"
-                            name="vastaukset"
-                            value={kysymykset.vastaukset}
-                            onChange={e => handleInputChange(e)}
-                            fullWidth
-                            variant="outlined"
-                        />
-                    </li>
-                    
-                ))}   
-                          
-                    </ul> */}
                 </DialogContentText>
             </DialogContent>
 
@@ -108,7 +115,7 @@ export default function Kysely(props) {
                 <Button onClick={handleClose}>Cancel</Button>
 
                 {/* tänne tallennustoiminta sitten kun sen aika on */}
-                <Button >Save</Button>
+                <Button onClick={() => {lahetaVastaukset(vastaukset)}}>Save</Button>
             </DialogActions>
 
             </Dialog>
