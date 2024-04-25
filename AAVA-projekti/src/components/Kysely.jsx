@@ -49,7 +49,7 @@ export default function Kysely(props) {
     }
 
     const lahetaVastaukset = (v) => {
-
+        console.log(v);
         fetch('https://localhost:8080/uusivastaus', {
             method: 'POST',
             headers: {
@@ -76,7 +76,7 @@ export default function Kysely(props) {
     // toistaiseksi pitäisi avata kysely dialogi-ikkunassa
     return (
         <>
-           <Button variant="outlined" size='small' onClick={handleClickOpen}>Avaa kysely</Button>
+           <Button variant="outlined" size='small' onClick={handleClickOpen}>Vastaa kyselyyn</Button>
            <Dialog
                 // avaa dialogi-ikkunan
                 open={open}
@@ -102,10 +102,8 @@ export default function Kysely(props) {
                 </DialogContentText>
                 <DialogContentText id="alert-dialog-description">
                     <div>
-                        {kysymykset.map((kysymys, index) => {
-                            return(
+                        { kysymykset.map((kysymys, index) => {
                                 <Kysymys key={kysymys.kysymysid} kysymys={kysymys} muutaVastausLista={muutaVastausLista} index={index} />
-                            )
                         })}
                     </div>
                 </DialogContentText>

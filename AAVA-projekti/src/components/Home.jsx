@@ -2,6 +2,7 @@ import { useState } from "react"
 import { useEffect } from "react";
 import { AgGridReact } from "ag-grid-react";
 import Kysely from "./Kysely";
+import KyselynRaportti from "./KyselynRaportti";
 
 import "ag-grid-community/styles/ag-grid.css";
 import "ag-grid-community/styles/ag-theme-material.css";
@@ -15,7 +16,10 @@ export default function Home() {
         // cellrenderer lähettää kyselyn (rivin) tiedot parametrinä Kysely.jsx
         {cellRenderer: (params) => 
             <Kysely params={params}/>,
-            width: 170}
+            width: 170},
+        {cellRenderer: (params) => 
+            <KyselynRaportti params={params}/>,
+            width: 350}
     ]);
 
     useEffect(() => haeKyselyt(), []);
@@ -43,7 +47,7 @@ export default function Home() {
             </h1>            
             {/* Tähän listaus aktiivisista kyselyistä */}
             <h2>Aktiiviset kyselyt</h2>
-            <div className="ag-theme-material" style={{width: 1500, height: 500}}>
+            <div className="ag-theme-material" style={{width: 1800, height: 500}}>
                 <AgGridReact
                     rowData={kyselyt}
                     columnDefs={colDefs}
