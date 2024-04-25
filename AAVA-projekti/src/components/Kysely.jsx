@@ -49,7 +49,7 @@ export default function Kysely(props) {
     }
 
     const lahetaVastaukset = (v) => {
-
+        console.log(v);
         fetch('https://localhost:8080/uusivastaus', {
             method: 'POST',
             headers: {
