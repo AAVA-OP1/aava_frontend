@@ -97,9 +97,10 @@ export default function Kysely(props) {
 
             <DialogContent>
             <DialogContentText>
-                    Kysleyn laatija: {kysely.kyselyntekija}
+                    Kyselyn laatija: {kysely.kyselyntekija}
 
                 </DialogContentText>
+                
                 <DialogContentText id="alert-dialog-description">
                     <div>
                         { kysymykset.map((kysymys, index) => {
