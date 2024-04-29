@@ -48,15 +48,16 @@ export default function Kysely(props) {
     }
 
     const lahetaVastaukset = (v) => {
-        // console.log(v);
-        fetch('https://localhost:8080/uusivastaus', {
+        console.log(v);
+        fetch('http://localhost:8080/uusivastaus', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
             },
-                body: JSON.stringify(v)
+            body: JSON.stringify(v)
         })
         .then(response => {
+            console.log(response);
             if (response.ok) {
                 console.log("ok");
                 return response.json;

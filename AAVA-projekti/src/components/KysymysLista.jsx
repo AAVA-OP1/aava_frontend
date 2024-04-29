@@ -32,29 +32,33 @@ export default function KysymysLista() {
 
 return (
     <>
-        <div>
-            <h1>Kysymykset ja niiden vastaukset</h1>
-               {/* käydään kyselyt, niiden kysymykset ja kysymysten vastaukset läpi */}
-               {/* ps. jos rikot tämän, alina murhaa sut */}
-            {
-                kyselyt.map((kysely) => (
-                    kysely.kysymykset.map((kysymys, j) => (
-                        <div key={j}>
-                            <p>{kysymys.sisalto}</p>
-                        {kysymys.vastaukset.map((vastaus, k) => (
-                            <div key={k}>
-                                {/* <p>{vastaus.vastaus}</p> */}
-                                <ul>
-                                    <li>{vastaus.vastaus}</li>
-                                </ul>
+        <div style={{width: 500, display: 'flex'}}>
+            <div style={{position: 'absolute', top: 50}}>
+                <h1>Kysymykset ja niiden vastaukset</h1>
+                {/* käydään kyselyt, niiden kysymykset ja kysymysten vastaukset läpi */}
+                {/* ps. jos rikot tämän, alina murhaa sut */}
+                {
+                    kyselyt.map((kysely) => (
+                        kysely.kysymykset.map((kysymys, j) => (
+                            <div key={j}>
+                                <p>{kysymys.sisalto}</p>
+                            {kysymys.vastaukset.map((vastaus, k) => (
+                                <div key={k}>
+                                    {/* <p>{vastaus.vastaus}</p> */}
+                                    <ul>
+                                        <li>{vastaus.vastaus}</li>
+                                    </ul>
+                                    <br />
+                                </div>
+                            ))}
                             </div>
-                        ))}
-                        </div>
+                        ))
                     ))
-                ))
-            }
+                }
 
+            </div>
         </div>
     </>
+        
 );
 }
