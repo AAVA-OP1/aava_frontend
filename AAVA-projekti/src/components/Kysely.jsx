@@ -11,9 +11,7 @@ import Kysymys from './Kysymys';
 export default function Kysely(props) {
 
     const [open, setOpen] = useState(false);
-    const [kysymykset, setKysymykset] = useState([{
-        sisalto: ''
-    }]);
+    const [kysymykset, setKysymykset] = useState([]);
 
     const [vastaukset, setVastaukset] = useState([]);
 
@@ -29,6 +27,7 @@ export default function Kysely(props) {
             });
 
             // tallentaa kyselyn kysymykset
+            // console.log(props.params.data.kysymykset);
             setKysymykset(props.params.data.kysymykset);
         setOpen(true);
     };
@@ -49,7 +48,7 @@ export default function Kysely(props) {
     }
 
     const lahetaVastaukset = (v) => {
-        console.log(v);
+        // console.log(v);
         fetch('https://localhost:8080/uusivastaus', {
             method: 'POST',
             headers: {
@@ -100,12 +99,12 @@ export default function Kysely(props) {
                     Kyselyn laatija: {kysely.kyselyntekija}
 
                 </DialogContentText>
-                
+
                 <DialogContentText id="alert-dialog-description">
                     <div>
-                        { kysymykset.map((kysymys, index) => {
+                        { kysymykset.map((kysymys, index) => (
                                 <Kysymys key={kysymys.kysymysid} kysymys={kysymys} muutaVastausLista={muutaVastausLista} index={index} />
-                        })}
+                        ))}
                     </div>
                 </DialogContentText>
             </DialogContent>
