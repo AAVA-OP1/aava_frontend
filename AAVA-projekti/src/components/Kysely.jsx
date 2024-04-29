@@ -66,7 +66,8 @@ export default function Kysely(props) {
             }
         })
         .then(data => {
-            console.log("JSON: "  + data);
+            props.haeKyselyt();
+            handleClose();
         })
         .catch(err => console.error(err))
     };

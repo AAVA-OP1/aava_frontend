@@ -15,7 +15,7 @@ export default function Home() {
         {headerName: 'Kyselyn tekijä', field: 'kyselynTekija.nimi', filter: true, floatingFilter: true},
         // cellrenderer lähettää kyselyn (rivin) tiedot parametrinä Kysely.jsx
         {cellRenderer: (params) => 
-            <Kysely params={params}/>,
+            <Kysely params={params} haeKyselyt={haeKyselyt}/>,
             width: 170},
         {cellRenderer: (params) => 
             <KyselynRaportti params={params}/>,
