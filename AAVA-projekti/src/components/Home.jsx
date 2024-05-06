@@ -11,7 +11,7 @@ export default function Home() {
 
     const [kyselyt, setKyselyt] = useState([]);
     const [colDefs, setColDefs] = useState([
-        {field: 'nimi', sortable: true, filter: true, floatingFilter: true},
+        {field: 'nimi', sortable: true, filter: true, floatingFilter: true, width: 350},
         {headerName: 'Kyselyn tekijä', field: 'kyselynTekija.nimi', filter: true, floatingFilter: true},
         // cellrenderer lähettää kyselyn (rivin) tiedot parametrinä Kysely.jsx
         {cellRenderer: (params) => 

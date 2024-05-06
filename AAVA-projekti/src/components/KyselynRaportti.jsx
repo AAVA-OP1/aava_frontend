@@ -47,7 +47,7 @@ export default function KyselynRaportti(props) {
             <div>
               {kysymykset.map((k, i) => (
                 <div key={i}>
-                  <p>{k.sisalto}</p>
+                  <h4>{k.sisalto}</h4>
                   {k.vastaukset.map((v, j) => (
                     <div key={j}>
                       <ul>
