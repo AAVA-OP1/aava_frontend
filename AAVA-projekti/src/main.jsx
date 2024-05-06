@@ -6,6 +6,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import Home from './components/Home.jsx';
 import KysymysLista from './components/KysymysLista.jsx';
 import Error from './components/Error.jsx';
+import Diagrammi from './components/Diagrammi.jsx';
 
 
 // router elementti polkuja
@@ -14,15 +15,16 @@ const router = createBrowserRouter([  // Import components that are used in rout
     path: "/",
     element: <App />,
     errorElement: <Error />,    //error käsittely
-    children: [                       // children are nested routes with a route
+    children: [                      
       {
         element: <Home />,
-        index: true                   // index route does not need any path
+        index: true                   
       },
       {
-        path: "kysymyslista",                // path can be defined relative to the parent path
-        element: <KysymysLista />,
+        path: "diagrammi",              
+        element: <Diagrammi />,
       },
+
 
     ]
   }

@@ -11,7 +11,7 @@ function App() {
     <>
       <nav>
         <Link to={"/"}>Etusivu</Link>
-        <Link to={"/kysymyslista"}>Kysymyslista</Link>
+        <Link to={"/diagrammi"}>Kuvaaja</Link>
 
       </nav>
       <Outlet />
