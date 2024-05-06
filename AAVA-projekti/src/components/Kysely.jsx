@@ -94,9 +94,13 @@ export default function Kysely(props) {
                     },
                 }}
             >
-            <DialogTitle>Kyselyn tiedot</DialogTitle>
+            <DialogTitle>Vastaa kyselyyn {kysely.nimi}</DialogTitle> {/* nimi ei toimi.. */}
 
             <DialogContent>
+            <DialogContentText>
+                    Kyselyn nimi: {kysely.nimi}  {/* nimi ei toimi... */}
+
+                </DialogContentText>
             <DialogContentText>
                     Kyselyn laatija: {kysely.kyselyntekija}
 

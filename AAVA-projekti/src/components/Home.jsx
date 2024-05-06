@@ -47,7 +47,7 @@ export default function Home() {
             </h1>            
             {/* Tähän listaus aktiivisista kyselyistä */}
             <h2>Aktiiviset kyselyt</h2>
-            <div className="ag-theme-material" style={{width: 1800, height: 500}}>
+            <div className="ag-theme-material" style={{width: 1300, height: 500, margin: 'auto'}}>
                 <AgGridReact
                     rowData={kyselyt}
                     columnDefs={colDefs}

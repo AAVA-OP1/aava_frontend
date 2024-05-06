@@ -18,11 +18,11 @@ export default function KyselynRaportti(props) {
     setOpen(true);
   };
 
-//   const testi = () => {
-//       console.log(kysely);
-//       console.log(kysymykset);
+/*    const testi = () => {
+       console.log(kysely);
+       //console.log(kysymykset);
     
-//     }
+     } */
 
   const handleClose = () => {
     setOpen(false);
@@ -33,8 +33,8 @@ export default function KyselynRaportti(props) {
       <Button variant="outlined" onClick={handleClick}>
         Tarkastele vastauksia
       </Button>
-      {/* <Button variant="outlined" onClick={testi}>Testi</Button> */}
-
+{/*        <Button variant="outlined" onClick={testi}>Testi</Button> 
+ */}
       <Dialog
         // avaa dialogi-ikkunan
         open={open}
@@ -51,10 +51,11 @@ export default function KyselynRaportti(props) {
           },
         }}
       >
-        <DialogTitle>Kyselyraportti</DialogTitle>
+        <DialogTitle>Kyselyraportti kyselylle: {kysely.nimi}</DialogTitle>
 
         <DialogContent>
-          <DialogContentText>Kyselyn nimi: {kysely.nimi}</DialogContentText>
+          <DialogContentText>Kyselyn tekijä : {kysely.kyselyntekija}</DialogContentText> {/* tekijä ei toimi... */}
+          <DialogContentText>Kyselyn nimi : {kysely.nimi}</DialogContentText>
 
           <DialogContentText id="alert-dialog-description">
                 <div>
