@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 
 export default function KysymysLista() {
 
@@ -19,10 +19,6 @@ export default function KysymysLista() {
                     throw new Error('Network response was not ok.');
             })
             .then(data => {
-                // // TÄLLÄ HETKELLÄ OTTAA EKAN KYSELYN KYSYMYKSET
-                // if (Array.isArray(data) && data.length > 0 && Array.isArray(data[0].kysymykset)) {
-                //     setKysymykset(data[0].kysymykset);
-                // }
                 setKyselyt(data);
                
             })
@@ -36,7 +32,6 @@ return (
             <div style={{position: 'absolute', top: 50}}>
                 <h1>Kysymykset ja niiden vastaukset</h1>
                 {/* käydään kyselyt, niiden kysymykset ja kysymysten vastaukset läpi */}
-                {/* ps. jos rikot tämän, alina murhaa sut */}
                 {
                     kyselyt.map((kysely) => (
                         kysely.kysymykset.map((kysymys, j) => (

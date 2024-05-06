@@ -2,15 +2,13 @@ import { useState } from "react";
 import TextField from "@mui/material/TextField";
 
 export default function Kysymys(props) {
-  // vastauskenttä
-  // onChange
+
   const [vastaus, setVastaus] = useState({
     kysymysid: props.kysymys.kysymysid,
     vastauksensisalto: "",
   });
 
   const handleInputChange = (e) => {
-    // tallenna tieto
     setVastaus({ ...vastaus, [e.target.name]: e.target.value });
   };
 

@@ -10,19 +10,16 @@ export default function KyselynRaportti(props) {
   const [open, setOpen] = useState(false);
 
   const [kysely, setKysely] = useState([]);
-    const [kysymykset, setKysymykset] = useState([]); 
+  const [kysymykset, setKysymykset] = useState([]);
+  const [tekija, setTekija] = useState('');
 
   const handleClick = () => {
+    setTekija(props.params.data.kyselynTekija.nimi);
     setKysely(props.params.data);
     setKysymykset(props.params.data.kysymykset);
     setOpen(true);
   };
 
-/*    const testi = () => {
-       console.log(kysely);
-       //console.log(kysymykset);
-    
-     } */
 
   const handleClose = () => {
     setOpen(false);
@@ -33,53 +30,38 @@ export default function KyselynRaportti(props) {
       <Button variant="outlined" onClick={handleClick}>
         Tarkastele vastauksia
       </Button>
-{/*        <Button variant="outlined" onClick={testi}>Testi</Button> 
- */}
       <Dialog
         // avaa dialogi-ikkunan
+        fullScreen
         open={open}
         onClose={handleClose}
-        PaperProps={{
-          component: "form",
-          onSubmit: (event) => {
-            event.preventDefault();
-            const formData = new FormData(event.currentTarget);
-            const formJson = Object.fromEntries(formData.entries());
-            const email = formJson.email;
-            console.log(email);
-            handleClose();
-          },
-        }}
       >
         <DialogTitle>Kyselyraportti kyselylle: {kysely.nimi}</DialogTitle>
 
         <DialogContent>
-          <DialogContentText>Kyselyn tekijä : {kysely.kyselyntekija}</DialogContentText> {/* tekijä ei toimi... */}
+          <DialogContentText>
+            Kyselyn tekijä : {tekija}
+          </DialogContentText>{" "}
           <DialogContentText>Kyselyn nimi : {kysely.nimi}</DialogContentText>
-
           <DialogContentText id="alert-dialog-description">
-                <div>
-                    {
-                        kysymykset.map((k, i) => (
-                            <div key={i}>
-                                <p>{k.sisalto}</p>
-                                {k.vastaukset.map((v, j) => (
-                                    <div key={j}>
-                                        <ul>
-                                            <li>{v.vastaus}</li>
-                                        </ul>
-                                    </div>
-                                ))}
-                            </div>
-                        ))
-                    }
-
+            <div>
+              {kysymykset.map((k, i) => (
+                <div key={i}>
+                  <p>{k.sisalto}</p>
+                  {k.vastaukset.map((v, j) => (
+                    <div key={j}>
+                      <ul>
+                        <li>{v.vastaus}</li>
+                      </ul>
+                    </div>
+                  ))}
                 </div>
+              ))}
+            </div>
           </DialogContentText>
-
         </DialogContent>
         <DialogActions>
-          <Button onClick={handleClose}>Sulje</Button>
+          <Button onClick={handleClose} variant="contained">Sulje</Button>
         </DialogActions>
       </Dialog>
     </>

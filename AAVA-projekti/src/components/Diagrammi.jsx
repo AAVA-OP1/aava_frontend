@@ -1,6 +1,6 @@
-import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, BarChart, Bar, Rectangle } from 'recharts';
+import {  XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, BarChart, Bar, Rectangle } from 'recharts';
 import { useEffect, useState } from "react";
-import * as React from 'react';
+
 
 export default function Diagrammi() {
 
@@ -28,18 +28,6 @@ export default function Diagrammi() {
             .catch(error => console.error(error));
     }
 
-    const testidata = [
-        {
-            nimi: 'Ensimmäinen testikysely',
-            vastausLKM: 24,
-        },
-        {
-            nimi: 'Kysely kouluruuasta',
-            vastausLKM: 13,
-        },
-    ];
-
-
     const calculateData = (kyselyt) => {
         const dataMap = new Map([]);
 
@@ -57,12 +45,10 @@ export default function Diagrammi() {
 
 
         });
-        //console.log("haha" + dataMap)
 
         var rightList = [];
         dataMap.forEach((LKM, nimi) => {
             rightList.push({ nimi, LKM });
-            //console.log(rightList);
         });
         
                 // muutetaan ne chartin vaatiman muotoon
@@ -75,7 +61,6 @@ export default function Diagrammi() {
                     });
                 });
         
-                //console.log(transformedData);
                 return transformedData;
                 
     }
@@ -84,7 +69,7 @@ export default function Diagrammi() {
      const rightDataList = calculateData(kyselyt);
 
     return (
-        <div style={{ width: '100%', height: 1000 }}>
+        <div style={{ width: '100%', height: 450 }}>
             <ResponsiveContainer style={{ width: '60%', height: 800 }}>
                 <BarChart
                     data={rightDataList}
