@@ -16,7 +16,7 @@ export default function Home() {
         // cellrenderer lähettää kyselyn (rivin) tiedot parametrinä Kysely.jsx
         {cellRenderer: (params) => 
             <Kysely params={params} haeKyselyt={haeKyselyt}/>,
-            width: 170},
+            width: 200},
         {cellRenderer: (params) => 
             <KyselynRaportti params={params}/>,
             width: 350}
