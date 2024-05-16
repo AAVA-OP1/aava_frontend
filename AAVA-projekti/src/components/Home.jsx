@@ -26,7 +26,7 @@ export default function Home() {
 
     const haeKyselyt = () => {
         // hae kyselyt backendistä
-        fetch('http://localhost:8080/kyselyt', {method: 'GET'}) 
+        fetch('http://aavabackend-aavaohjelmistoprojekti.rahtiapp.fi/kyselyt', {method: 'GET'}) 
         .then(response => {
             if (!response.ok) {
                 console.log("Virhe");
