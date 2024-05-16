@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 
 export default function Diagrammi() {
 
-    const URL = 'http://aavabackend-aavaohjelmistoprojekti.rahtiapp.fi/kyselyt';
+    const URL = 'https://aavabackend-aavaohjelmistoprojekti.rahtiapp.fi/kyselyt';
     // const URLRender = 'http://localhost:8080/kyselyt';
 
     // const [vastaukset, setVastaukset] = useState([]);

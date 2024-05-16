@@ -46,7 +46,7 @@ export default function Kysely(props) {
 
   const lahetaVastaukset = (v) => {
     console.log(v);
-    fetch("http://aavabackend-aavaohjelmistoprojekti.rahtiapp.fi/uusivastaus", {
+    fetch("https://aavabackend-aavaohjelmistoprojekti.rahtiapp.fi/uusivastaus", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

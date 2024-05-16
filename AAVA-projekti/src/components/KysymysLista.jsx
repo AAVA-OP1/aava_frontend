@@ -11,7 +11,7 @@ export default function KysymysLista() {
 
     // Tämä hakee REST kyselyllä localhost kyselyt, muuta URL jos tarvitsee
     const getKysymykset = () => {
-        fetch('http://aavabackend-aavaohjelmistoprojekti.rahtiapp.fi/kyselyt', { method: 'GET' })
+        fetch('https://aavabackend-aavaohjelmistoprojekti.rahtiapp.fi/kyselyt', { method: 'GET' })
             .then(response => {
                 if (response.ok)
                     return response.json();
